@@ -1,1 +1,6 @@
+PowerShell Theory:
 https://kevinmarquette.github.io
+
+
+Citrix knowledge, scripting, XA,XD
+https://blog.citrix24.com/
