@@ -1,0 +1,1 @@
+﻿Robocopy.exe "C:\MyScripts" "D:\_MyScripts-Backup" /R:0 /W:0 /MT:16 /DCOPY:T /COPY:DAT /MIR /LOG+:"C:\MyScripts\Log\backup.txt"
