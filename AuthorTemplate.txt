@@ -1,0 +1,15 @@
+<#  
+.SYNOPSIS  
+    Upgrades the IBMS SIT6CL Client.       
+.DESCRIPTION  
+    SIT6CL will copied from AGPILATCM501 to AGPJCM501.
+    PilatApp.config file will be updated for BellMedia environment.
+    Copy the updated client files from AGPJCM501 to required Citrix servers and MagicTask servers.
+.NOTES  
+    File Name      : SIT6CL_Client.ps1  
+    Author         : Manish Patel (manish.patel81@gmail.com)
+    Script Version : 5.0
+    Last Modified  : September 14, 2017
+    Prerequisite   : PowerShell.
+    Copyright      : Manish Patel
+#>
