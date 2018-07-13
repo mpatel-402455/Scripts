@@ -43,4 +43,11 @@
     #remote compuer and specific software search
     Invoke-Command -ComputerName 04408MILP, 04409MILP -ScriptBlock {Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object {$_."Displayname" -like "*ja*"} |Select-Object -Property DisplayName,Publisher, InstallDate }
 
+# Importing PowerShell_ISE
+    Import-Module ServerManager 
+    Add-WindowsFeature PowerShell-ISE
+
+# ISE Buffer Size change:'
+    $host.UI.RawUI.BufferSize = New-Object System.Management.Automation.Host.Size(200,3000)
+
 
