@@ -50,4 +50,4 @@ foreach ($Printer in $Printers)
 $WorkBook.EntireColumn.AutoFit()
 $intRow = $intRow + 1
 $Sheet.Cells.Item($intRow,1).Font.Bold = $True
-$Sheet.Cells.Item($intRow,1) = "Print server inventory - Created by Manish Patel"
+$Sheet.Cells.Item($intRow,1) = "Print server inventory - Created by ....."
