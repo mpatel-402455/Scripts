@@ -6,11 +6,11 @@
                      #                                                                                  #
                      #    .NOTES                                                                        #
                      #       File Name      : Update_Registry.ps1                                       #
-                     #       Author         : Manish Patel                                              #
+                     #       Author         : https://github.com/mpatel-402455                          #
                      #       Script Version : 1.0                                                       #
                      #       Last Modified  : December 13, 2017                                         #
                      #       Prerequisite   : PowerShell.                                               #
-                     #       Author         : Manish Patel                                              #
+                     #       Author         : https://github.com/mpatel-402455l                         #
                      ####################################################################################>
 
 
