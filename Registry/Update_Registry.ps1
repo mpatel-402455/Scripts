@@ -19,7 +19,7 @@
 
 
 
-#$ServerNames = "04693PULD","04696PULD","04694PULD","04645PULD","04643PULD","04644PULD","04642PULD","04641PULD","04692PULD","04640PULD","04644MILQ","04643MILQ","04645MILQ","04641MILQ","04642MILQ","04640MILQ"
+#$ServerNames = "SrvName1","SrvName2","SrvName3","SrvName4"
 $ServerNames = Get-Content -Path "C:\DATA\MyScripts\In-Put-Files\Test_ServerList.txt"
 
 #$RegPath = "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX"
