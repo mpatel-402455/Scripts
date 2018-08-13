@@ -18,6 +18,8 @@
     Get-EventLog -LogName Security -ComputerName "___" | Where-Object -Property {$_.EventID -eq 4771} | Select-Object -Property * -First 1
     Get-EventLog -LogName System -After "09/28/2015" -Before "09/29/20115" | Where-Object {$_.EntryType -like 'Error' -or $_.EntryType -like 'Warning'}
     Get-EventLog -ComputerName "___"  -LogName System -EntryType Error -After "11/28/2017" -Before "11/29/2017"
+    # Shutdown/ Re-start Event Log
+    Get-EventLog System | Where-Object {$_.EventID -eq "1074" -or $_.EventID -eq "6008" -or $_.EventID -eq "1076"}| ft Machinename, TimeWritten, UserName, EventID, Message -AutoSize -Wrap 
 
 
 # Service singe server
