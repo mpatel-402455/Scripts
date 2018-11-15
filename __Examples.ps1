@@ -44,6 +44,22 @@
     Invoke-Command -ComputerName 04408MILP, 04409MILP -ScriptBlock {Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object -Property {$_.Displayname -like "*Java*"} |Select-Object -Property DisplayName, Publisher, InstallDate }
     #remote compuer and specific software search
     Invoke-Command -ComputerName 04408MILP, 04409MILP -ScriptBlock {Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object {$_."Displayname" -like "*ja*"} |Select-Object -Property DisplayName,Publisher, InstallDate }
+    
+    Get-WmiObject -Class Win32_Product | Select-Object -Property Name, Vendor,Version |Where-Object {$_."vendor" -like "*RBC*"} | Sort-Object -Property Name | ft -AutoSize
+ 
+    Get-WmiObject -Class Win32_Product | Select-Object -Property Name, Vendor,Version, InstallDate | sort name
+ 
+    Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
+ 
+    Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object {$_."publisher" -like "*KC46*"} | Select-Object -Property Displayname,DisplayVersion, publisher |Format-Table -AutoSize
+ 
+    WMIC /output:c:ProgramList.txt product get name,version
+
+    $InstallApps_Reg  = Get-WmiObject -Class Win32_Product | Select-Object -Property Name, Vendor,Version, InstallDate
+    $InstallApps_Reg | export-csv -notypeinformation -path C:\Temp\InstallApps_Reg.csv
+  
+    $InstallApp_reg = Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object -Property Displayname,DisplayVersion, publisher,installDate | Sort-Object displayname
+    $InstallApp_reg | Export-Csv -NoTypeInformation -Path C:\TEMP\InstallApp_Reg.csv 
 
 # Importing PowerShell_ISE
     Import-Module ServerManager 
