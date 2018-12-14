@@ -65,7 +65,22 @@
     Import-Module ServerManager 
     Add-WindowsFeature PowerShell-ISE
 
-# ISE Buffer Size change:'
+# ISE Buffer Size change:
     $host.UI.RawUI.BufferSize = New-Object System.Management.Automation.Host.Size(200,3000)
 
+# AppV:
+    # Remove App-V cache:
+        Get-AppvClientPackage -All | Remove-AppvClientPackage
+        
+    # To re-cache App-V:
+        1. Restart Citrix Desktop Service (Name=BrokerAgent)
+            Get-Service BrokerAgent | Restart-Service
+            
+        2. Get-AppvClientPackage -All | Mount-AppvClientPackage
+    
+    # To publish AppV app Globally:
+        Publish-AppvClientPackage -PackageId bd20aabd-06b5-4fa5-8dee-54b4ccf06558 -VersionId f005e1fd-9820-415c-af62-f255dd94bf10 -Global
+
+    # To Unpublish AppV app Globally
+        Unpublish-AppvClientPackage -PackageId bd20aabd-06b5-4fa5-8dee-54b4ccf06558 -VersionId f005e1fd-9820-415c-af62-f255dd94bf10 -Global
 
