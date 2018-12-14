@@ -22,7 +22,7 @@
     Get-EventLog System | Where-Object {$_.EventID -eq "1074" -or $_.EventID -eq "6008" -or $_.EventID -eq "1076"}| ft Machinename, TimeWritten, UserName, EventID, Message -AutoSize -Wrap 
 
 
-# Service singe server
+# Service single server
     Get-Service -ComputerName "___"  -Name "__" | Select-Object -Property ServiceName,Name,DisplayName,MachineName,StartType
     
     # Services from multiple computers  $ServerName = ("04644MILQ","04643MILQ","04640MILQ","04642MILQ")
