@@ -25,7 +25,7 @@
 # Service single server
     Get-Service -ComputerName "___"  -Name "__" | Select-Object -Property ServiceName,Name,DisplayName,MachineName,StartType
     
-    # Services from multiple computers  $ServerName = ("04644MILQ","04643MILQ","04640MILQ","04642MILQ")
+    # Services from multiple computers  $ServerName = ("Server01","Server02","Server03","Server04")
     Get-Service -ComputerName ("_","_","_","_") -Name "__" | Select-Object -Property Name,DisplayName,Status,StartType,MachineName,CanStop | Format-Table -AutoSize 
 
 
