@@ -1,0 +1,28 @@
+#$ServerNames = Get-Content -Path "C:\DATA\MyScripts\In-Put-Files\Test_ServerList.txt" 
+
+# $ServerNames = ("server1", "server2")
+
+
+foreach ($server in $ServerNames)
+    {
+        
+        Write-Host "Working on server: $server"
+        Test-Path -Path Microsoft.PowerShell.Core\Registry::HKEY_CLASSES_ROOT\software\Adobe\Acrobat\Exe
+
+  if ((Invoke-Command -ComputerName $server -ScriptBlock {Test-Path -Path Microsoft.PowerShell.Core\Registry::HKEY_CLASSES_ROOT\software\Adobe\Acrobat\Exe}) -eq $false )
+                {
+                    Write-Host "The registry key for Adobe not found on $server" -ForegroundColor DarkMagenta `n
+                                   }
+
+            if ((Invoke-Command -ComputerName $server -ScriptBlock {Test-Path -Path Microsoft.PowerShell.Core\Registry::HKEY_CLASSES_ROOT\software\Adobe\Acrobat\Exe}) -eq $true )
+                {
+                    Write-Host "The registry key found on $server" -ForegroundColor Green `n
+
+                   
+                   
+                   #Modify the key value 
+                  
+                   (Invoke-Command -ComputerName $server -ScriptBlock {Set-ItemProperty -Path Microsoft.PowerShell.Core\Registry::HKEY_CLASSES_ROOT\software\Adobe\Acrobat\Exe -Name "(Default)" -Value '"C:\Program Files (x86)\Adobe\Acrobat Reader 2017\Reader\AcroRd32.exe"'})
+                }
+       
+    }
