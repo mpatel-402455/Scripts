@@ -1,0 +1,16 @@
+# Adding User/Group to administrators gorup on multiple servers
+
+$servers = Get-Content C:\temp\servers.txt
+"Name`tStatus" | Out-File -FilePath c:\temp\results.txt
+foreach ($server in $servers){
+ try{
+ # $adminGroup = [ADSI]"WinNT://$server/Administrators"
+ # $adminGroup.add("WinNT://domain.com/USERID or GROUP")
+  "$server`tSuccess"
+  "$server`tSuccess" | Out-File -FilePath c:\temp\results.txtt -Append
+ }
+ catch{
+  "$server`t" + $_.Exception.Message.ToString().Split(":")[1].Replace("`n","")
+  "$server`t" + $_.Exception.Message.ToString().Split(":")[1].Replace("`n","") | Out-File -FilePath c:\temp\results.txt -Append
+ }
+}
