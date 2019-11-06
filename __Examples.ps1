@@ -30,9 +30,9 @@
 
 
 # Get-ACL share permission 
-    (Get-Acl -Path \\ServerName\vertex-streamserve$ | Select-Object -Property *).access
-    (Get-Acl -Path \\ServerName\vertex-streamserve$ | Select-Object -Property *).owner
-    (Get-Acl -Path \\ServerName\vertex-streamserve$ | Select-Object -Property *).access | Select-Object -ExpandProperty IdentityReference
+    (Get-Acl -Path \\HostName\ShareName$ | Select-Object -Property *).access
+    (Get-Acl -Path \\HostName\ShareName$ | Select-Object -Property *).owner
+    (Get-Acl -Path \\HostName\ShareName$ | Select-Object -Property *).access | Select-Object -ExpandProperty IdentityReference
 
 # Get-Printer
     Get-Printer -ComputerName "__" -Name "__" | Select-Object -Property *
