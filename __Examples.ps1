@@ -30,9 +30,9 @@
 
 
 # Get-ACL share permission 
-    (Get-Acl -Path \\04379milp\vertex-streamserve$ | Select-Object -Property *).access
-    (Get-Acl -Path \\04379milp\vertex-streamserve$ | Select-Object -Property *).owner
-    (Get-Acl -Path \\04379milp\vertex-streamserve$ | Select-Object -Property *).access | Select-Object -ExpandProperty IdentityReference
+    (Get-Acl -Path \\ServerName\vertex-streamserve$ | Select-Object -Property *).access
+    (Get-Acl -Path \\ServerName\vertex-streamserve$ | Select-Object -Property *).owner
+    (Get-Acl -Path \\ServerName\vertex-streamserve$ | Select-Object -Property *).access | Select-Object -ExpandProperty IdentityReference
 
 # Get-Printer
     Get-Printer -ComputerName "__" -Name "__" | Select-Object -Property *
@@ -41,9 +41,9 @@
     Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* |  Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table –AutoSize
     
     #remote computer, all software
-    Invoke-Command -ComputerName 04408MILP, 04409MILP -ScriptBlock {Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object -Property {$_.Displayname -like "*Java*"} |Select-Object -Property DisplayName, Publisher, InstallDate }
+    Invoke-Command -ComputerName ServerName01, ServerName02 -ScriptBlock {Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object -Property {$_.Displayname -like "*Java*"} |Select-Object -Property DisplayName, Publisher, InstallDate }
     #remote compuer and specific software search
-    Invoke-Command -ComputerName 04408MILP, 04409MILP -ScriptBlock {Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object {$_."Displayname" -like "*ja*"} |Select-Object -Property DisplayName,Publisher, InstallDate }
+    Invoke-Command -ComputerName  ServerName01, ServerName02 -ScriptBlock {Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object {$_."Displayname" -like "*ja*"} |Select-Object -Property DisplayName,Publisher, InstallDate }
     
     Get-WmiObject -Class Win32_Product | Select-Object -Property Name, Vendor,Version |Where-Object {$_."vendor" -like "*RBC*"} | Sort-Object -Property Name | ft -AutoSize
  
