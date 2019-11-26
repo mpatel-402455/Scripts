@@ -7,3 +7,16 @@ https://blog.citrix24.com/
 
 
 http://powershell-guru.com
+
+# Event logs:
+  # Citrix Broker Service Events: 
+  https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/downloads/BrokerEvents.htm
+  
+  # Citrix FMA Service SDK Events:
+    https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/downloads/ServiceCoreEvents.htm
+    
+  # Citrix Configuration Service Events:
+    https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/downloads/ConfigurationEvents.htm
+    
+   # Citrix Delegated Administration Service Events:
+    https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/downloads/DelegatedAdminEvents.htm
